@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">CLIENTES</h2>
+
+                                <div class="action-container">
+                                    <button class="" id="btnCrearCliente">Crear Clientes</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar Cliente..."
+                                        class="search-bar">
+                                </div>
+
+
+
+                                <!-- The Modal -->
+                                <div id="modalCrearCliente" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearCliente">
+                                            <label for="fechaAlta">Fecha de Alta:</label>
+                                            <input type="date" id="fechaAlta" name="fecha_alta" required>
+
+                                            <label for="denominacionSocial" class="paresForm">Denominación
+                                                Social:</label>
+                                            <input type="text" id="denominacionSocial" name="denominacionSocial"
+                                                required>
+                                            <span class="error-message"></span>
+
+                                            <label for="centroDeTrabajo">Centro de Trabajo:</label>
+                                            <input type="text" id="centroDeTrabajo" name="centroDeTrabajo" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="direccion1" class="paresForm">Dirección 1:</label>
+                                            <input type="text" id="direccion1" name="direccion1" required>
+
+                                            <label for="direccion2">Dirección 2:</label>
+                                            <input type="text" id="direccion2" name="direccion2">
+
+                                            <label for="direccion3" class="paresForm">Dirección 3:</label>
+                                            <input type="text" id="direccion3" name="direccion3">
+
+                                            <label for="direccion4">Dirección 4:</label>
+                                            <input type="text" id="direccion4" name="direccion4">
+
+                                            <label for="CIF" class="paresForm">CIF:</label>
+                                            <input type="text" id="CIF" name="CIF" required>
+
+                                            <label for="codigoPostal">Código Postal:</label>
+                                            <input type="text" id="codigoPostal" name="codigoPostal" required>
+
+                                            <label for="formaPago" class="paresForm">Forma de Pago:</label>
+                                            <input type="text" id="formaPago" name="formaPago" required>
+
+                                            <label for="observacionesCliente">Observaciones:</label>
+                                            <textarea id="observacionesCliente" name="observacionesCliente"></textarea>
+
+                                            <button type="button" id="btnGuardarCliente">Guardar</button>
+                                            <button type="button" id="btnActualizarCliente">Actualizar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <table id="tabla-clientes" class="tablaEstilo">
+                                    <thead>
+                                        <tr>
+                                            <th class="fecha">
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Fecha de Alta</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Denominación Social</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Centro de Trabajo</th>
+                                            <th>Dirección 1</th>
+                                            <th>Dirección 2</th>
+                                            <th>Dirección 3</th>
+                                            <th>Dirección 4</th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>CIF</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Código Postal</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Forma de Pago</th>
+                                            <th>Observaciones</th>
+                                            <th>Acciones</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-clientes">
+                                        <!-- Aquí se insertarán las filas de datos -->
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/clientes.js" defer></script>
+</body>
+
+</html>

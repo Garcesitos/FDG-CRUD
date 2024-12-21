@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALMACÉN</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <a href="almacen.html"><button class="btn-secondary">Mostrar Existencias</button></a>
+                                <h1 id="tituloH1" class="text-center tituloTabla">ALMACÉN</h1>
+                            </div>
+
+                            <div id="containerTabla" class="containerTabla">
+
+
+                                <div class="action-container">
+                                    <button class="" id="btnCrearAlmacen">Crear Almacén</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar en Registros..."
+                                        class="search-bar" />
+                                </div>
+
+                                <label for="apartadoTitle">Apartado</label>
+                                <select name="apartadoSelect" id="apartadoSelect">
+                                    <option value="ENTRADA">ENTRADA</option>
+                                    <option value="SALIDA">SALIDA</option>
+                                </select>
+
+                                <!-- The Modal -->
+                                <div id="modalCrearAlmacen" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div id="entrada_salidaDIV">
+                                            <label for="entrada_salida">Entrada/Salida</label>
+                                            <select name="entrada_salida" id="entrada_salida">
+                                                <option value="ENTRADA">Entrada</option>
+                                                <option value="SALIDA">Salida</option>
+                                            </select>
+                                        </div>
+
+
+                                        <form id="formularioEntrada" action="formularioEntrada">
+                                            <label for="numero_articulo_entrada"> Articulo</label>
+                                            <select name="numero_articulo_entrada" id="numero_articulo_entrada">
+                                                <!-- Aquí se mostrarán los numero_cliente de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="denominacion_entrada" class="paresForm">Denominación de
+                                                origen</label>
+                                            <input type="text" id="denominacion_entrada" name="denominacion_entrada"
+                                                required />
+
+                                            <label for="fecha_entrada">Fecha de entrada</label>
+                                            <input type="date" id="fecha_entrada" name="fecha_entrada" required />
+
+                                            <label for="cantidad_entrada" class="paresForm">Cantidad</label>
+                                            <input type="text" id="cantidad_entrada" name="cantidad_entrada" required />
+
+                                            <label for="pedido_id_entrada">ID de pedido</label>
+                                            <select name="pedido_id_entrada" id="pedido_id_entrada">
+                                                <!-- Aquí se mostrarán los pedido_id de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="proveedor_id" class="paresForm">Proveedor</label>
+                                            <select name="proveedor_id" id="proveedor_id">
+                                                <!-- Aquí se mostrarán los proveedor_id de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="tipo_producto_entrada">Tipo de Producto</label>
+                                            <select id="tipo_producto_entrada" name="tipo_producto_entrada" required>
+                                                <option value="COMERCIAL">COMERCIAL</option>
+                                                <option value="TORNILLERIA">TORNILLERIA</option>
+                                                <option value="SEMIELABORADO">SEMIELABORADO</option>
+                                                <option value="TERMINADO">TERMINADO</option>
+                                            </select>
+
+                                            <label for="observaciones_entrada" class="paresForm">Observaciones</label>
+                                            <textarea id="observaciones_entrada"
+                                                name="observaciones_entrada"></textarea>
+
+                                            <label for="estanteria_entrada">Estantería</label>
+                                            <select id="estanteria_entrada" name="estanteria_entrada" required>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="E">E</option>
+                                                <option value="F">F</option>
+                                                <option value="G">G</option>
+                                                <option value="H">H</option>
+                                            </select>
+
+                                            <label for="nivel_entrada" class="paresForm">Nivel (0-8)</label>
+                                            <input type="number" id="nivel_entrada" name="nivel_entrada" required />
+
+                                            <label for="zona_palet_entrada">Zona de Palet (0-20)</label>
+                                            <input type="number" id="zona_palet_entrada" name="zona_palet_entrada"
+                                                required />
+                                        </form>
+
+                                        <form id="formularioSalida" action="formularioSalida">
+                                            <label for="numero_articulo_salida">ID Articulo</label>
+                                            <select name="numero_articulo_salida" id="numero_articulo_salida">
+                                                <!-- Aquí se mostrarán los numero_cliente de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="denominacion_salida" class="paresForm">Denominación de
+                                                origen</label>
+                                            <input type="text" id="denominacion_salida" name="denominacion_salida"
+                                                required />
+
+                                            <label for="fecha_salida">Fecha de salida</label>
+                                            <input type="date" id="fecha_salida" name="fecha_salida" required />
+
+                                            <label for="cantidad_salida" class="paresForm">Cantidad</label>
+                                            <input type="text" id="cantidad_salida" name="cantidad_salida" required />
+
+                                            <label for="pedido_id_salida">ID de pedido</label>
+                                            <select name="pedido_id_salida" id="pedido_id_salida">
+                                                <!-- Aquí se mostrarán los pedido_id de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="numero_cliente" class="paresForm">Cliente</label>
+                                            <select name="numero_cliente" id="numero_cliente">
+                                                <!-- Aquí se mostrarán los numero_cliente de forma dinámica desde el JS -->
+                                            </select>
+
+                                            <label for="responsable_cliente">Responsable del cliente</label>
+                                            <input type="text" id="responsable_cliente"
+                                                name="responsable_cliente_salida" required />
+
+                                            <label for="tipo_producto_salida">Tipo de Producto</label>
+                                            <select id="tipo_producto_salida" name="tipo_producto_salida" required>
+                                                <option value="COMERCIAL">COMERCIAL</option>
+                                                <option value="TORNILLERIA">TORNILLERIA</option>
+                                                <option value="SEMIELABORADO">SEMIELABORADO</option>
+                                                <option value="TERMINADO">TERMINADO</option>
+                                            </select>
+
+                                            <label for="observaciones_salida" class="paresForm">Observaciones</label>
+                                            <textarea id="observaciones_salida" name="observaciones_salida"></textarea>
+
+                                            <label for="estanteria_salida">Estantería</label>
+                                            <select id="estanteria_salida" name="estanteria_salida" required>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="E">E</option>
+                                                <option value="F">F</option>
+                                                <option value="G">G</option>
+                                                <option value="H">H</option>
+                                            </select>
+
+                                            <label for="nivel_salida" class="paresForm">Nivel (0-8)</label>
+                                            <input type="number" id="nivel_salida" name="nivel_salida" required />
+
+                                            <label for="zona_palet_salida">Zona de Palet (0-20)</label>
+                                            <input type="number" id="zona_palet_salida" name="zona_palet_salida"
+                                                required />
+                                        </form>
+                                        <form id="formularioCrearAlmacen"></form>
+                                        <div class="d-flex flex-wrap flex-end">
+                                            <button type="button" id="btnGuardarAlmacen">
+                                                Guardar
+                                            </button>
+                                            <button type="button" id="btnActualizarAlmacen">
+                                                Actualizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tablaAlmacenEntrada">
+                                    <div class="d-flex justify-content-center">
+                                        <h3 class="margin-botton-3">ENTRADA</h3>
+                                    </div>
+
+                                    <table id="tabla-almacen-entrada" class="tablaEstilo">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Articulo</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Denominación</th>
+                                                <th class="fecha">
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Fecha de entrada</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Cantidad</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Pedido</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Proveedor</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Tipo</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Observaciones</th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Estantería</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Nivel</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Zona palet</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-almacen-entrada">
+                                            <!-- Aquí se insertarán las filas de datos -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                                <div id="tablaAlmacenSalida">
+                                    <div class="d-flex justify-content-center">
+                                        <h3 class="margin-botton-3">SALIDA</h3>
+                                    </div>
+
+                                    <table id="tabla-almacen-salida" class="tablaEstilo">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Articulo</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Denominación</th>
+                                                <th class="fecha">
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Fecha de entrada</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Cantidad</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Pedido</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Numero Cliente</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Responsable del Cliente</th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Tipo</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Observaciones</th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Estantería</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Nivel</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="d-flex flex-wrap align-items-center space-between">
+                                                        <div>Zona palet</div>
+                                                        <div class="d-flex dlex-wrap flex-direction-column">
+                                                            <i class="icon-up-open asc"></i>
+                                                            <i class=" icon-down-open desc"></i>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-almacen-salida">
+                                            <!-- Aquí se insertarán las filas de datos -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/registros_almacen.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "teydebeta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron src/main/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Diego, Gael y Alejandro",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^30.0.6",
+    "mysql2": "^3.9.7"
+  }
+}

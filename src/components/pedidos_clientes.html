@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEDIDOS CLIENTES</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">Pedidos Clientes</h2>
+                                <div class="action-container">
+                                    <button class="" id="myBtn">Crear Pedido</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar pedido..." class="search-bar">
+                                </div>
+
+                                <!-- Modal Ver Oferta -->
+                                <div id="modalVerOferta" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioVerOferta" class="m-10">
+
+                                            <label for="numOf">Numero de Oferta:</label>
+                                            <input type="number" id="numOf" name="numOf" readonly>
+
+                                            <label for="fecha" class="paresForm">Fecha:</label>
+                                            <input type="date" id="fecha" name="fecha" readonly>
+
+                                            <label for="cliente">Cliente:</label>
+                                            <input type="text" id="cliente" name="cliente" readonly>
+
+                                            <label for="atencionDe" class="paresForm">Atención de:</label>
+                                            <input type="text" id="atencionDe" name="atencionDe" readonly>
+
+                                            <label for="formaDePago">Forma de Pago:</label>
+                                            <input type="text" id="formaDePago" name="formaDePago" readonly>
+
+                                            <label for="plazoDeEntrega" class="paresForm">Plazo de Entrega:</label>
+                                            <input type="text" id="plazoDeEntrega" name="plazoDeEntrega" readonly>
+
+                                            <label for="validezOferta">Validez de Oferta:</label>
+                                            <input type="number" id="validezOferta" name="validezOferta" readonly>
+
+                                            <label for="ofertaAceptada" class="paresForm">Oferta Aceptada:</label>
+                                            <input type="text" id="ofertaAceptada" name="ofertaAceptada" readonly>
+
+                                        </form>
+
+                                        <form id="formularioVerPosiciones">
+                                            <table id="tablaVerPosiciones">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Posición</th>
+                                                        <th>P/N Artículo</th>
+                                                        <th>Denominación</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio Unitario</th>
+                                                        <th>Posición Aceptada</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Aquí se agregarán dinámicamente las filas de posiciones -->
+                                                </tbody>
+                                            </table>
+                                        </form>
+
+                                        <form id="formularioVerPosicionesPedidas">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Posicion/es</th>
+                                                        <th>P/N Artículo</th>
+                                                        <th>Denominación</th>
+                                                        <th>Denominación Pedido</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio Unitario</th>
+                                                        <th>Plazo de entrega</th>
+                                                        <th>Completado</th>
+                                                        <th>RCPS aplicable</th>
+                                                        <th>Precio Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Modal Crear Pedido -->
+                                <div id="modalCrearPedido" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearPedido" class="m-10">
+
+                                            <label for="fechaPedido">Fecha:</label>
+                                            <input type="date" id="fechaPedido" name="fechaPedido" required>
+
+                                            <label for="clientePedido" class="paresForm">Cliente:</label>
+                                            <select id="clientePedido" name="clientePedido">
+                                                <!-- Opciones se cargarán dinámicamente -->
+                                            </select>
+
+                                            <label for="ofertasPedido">Oferta:</label>
+                                            <select id="ofertasPedido" name="ofertasPedido" required>
+                                                <!-- Opciones se cargarán dinámicamente -->
+                                            </select>
+
+                                            <label for="direccionEntregaPedido" class="paresForm">Dirección de
+                                                entrega:</label>
+                                            <select id="direccionEntregaPedido" name="direccionEntregaPedido" required>
+                                                <!-- Opciones se cargarán dinámicamente -->
+                                            </select>
+                                        </form>
+
+                                        <form id="formularioCrearPosicionesPedidos">
+                                            <table id="tablaCrearPosicionesPedidos">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Posicion/es</th>
+                                                        <!-- Cargar todas las posiciones ACEPTADAS de la oferta seleccionada anteriormente (una posicion por fila) -->
+                                                        <th>P/N Artículo</th>
+                                                        <!-- Sacado de bbdd articulos -->
+                                                        <th>Denominación</th>
+                                                        <!-- Vinculado, inmodificable de PNArticulos -->
+                                                        <th>Denominación Pedido</th>
+                                                        <!-- Campo abierto -->
+                                                        <th>Cantidad</th>
+                                                        <!-- Cantidad sacada de la posicion seleccionada -->
+                                                        <th>Precio Unitario</th>
+                                                        <!-- Dato abierto a modificacion -->
+                                                        <th>Plazo de entrega</th>
+                                                        <!-- Fecha de entrega XX/XX/XXXX -->
+                                                        <th>Completado</th>
+                                                        <!-- Si o no  -->
+                                                        <th>RCPS aplicable</th>
+                                                        <!-- Se pondra por posición los requisitos de calidad aplicables. Campo alfanumérico. -->
+                                                        <th>Precio Total</th>
+                                                        <!-- Calculo de los campos Cantidad x Precio Unitario -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Aquí se agregarán dinámicamente las filas de posiciones -->
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex flex-wrap justify-content-center width-100">
+                                                <button type="button" id="btnAgregarPosicion">Agregar Posición</button>
+                                                <button type="button" id="btnEliminarFila">Eliminar ultima fila</button>
+                                                <button type="button" id="btnEliminarPosicion"
+                                                    class="eliminarPosicion">Eliminar última Posición</button>
+                                            </div>
+                                        </form>
+                                        <div class="d-flex flex-wrap flex-end">
+                                            <button id="btnGuardarPedido">Guardar</button>
+                                            <button type="button" id="btnActualizarPedido">Actualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <table id="tabla-pedido" class="tablaEstilo">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Número de Pedido</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th> <!-- Tabla pedidos_clientes -->
+                                            <th class="fecha">
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Fecha</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th> <!-- Tabla pedidos_clientes -->
+                                            <th>Cliente</th> <!-- Tabla clientes -->
+                                            <th>Oferta Relacionada</th> <!-- Tabla oferta -->
+                                            <th>Direccion de entrega</th> <!-- Tabla cliente -->
+                                            <th>Posiciones Pedidas</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-pedido">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/pedidos_clientes.js" defer></script>
+</body>
+
+</html>

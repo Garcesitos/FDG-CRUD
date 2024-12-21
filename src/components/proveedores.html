@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div id="containerTablaProveedores" class="containerTablaProveedores">
+                                <h2 class="text-center tituloTabla">PROVEEDORES</h2>
+
+                                <div class="action-container">
+                                    <button class="" id="btnCrearProveedor">Crear Proveedor</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar proveedor..."
+                                        class="search-bar">
+                                </div>
+
+
+
+                                <!-- The Modal -->
+                                <div id="modalCrearProveedor" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearProveedor">
+                                            <label for="fechaAlta" class="paresForm">Fecha de Alta:</label>
+                                            <input type="date" id="fechaAlta" name="fecha_alta" required>
+
+                                            <label for="nombreProveedor">Nombre del proveedor:</label>
+                                            <input type="text" id="nombreProveedor" name="nombreProveedor" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="actividad" class="paresForm">Actividad del proveedor:</label>
+                                            <textarea id="actividad" name="actividad" required></textarea>
+                                            <span class="error-message"></span>
+
+                                            <label for="estadoProveedor">Estado del proveedor:</label>
+                                            <select id="estadoProveedor" name="estadoProveedor" required>
+                                                <option value="alta">Alta</option>
+                                                <option value="baja">Baja</option>
+                                            </select>
+
+                                            <label for="tipoProveedor" class="paresForm">Tipo de proveedor:</label>
+                                            <select id="tipoProveedor" name="tipoProveedor" required>
+                                                <option value="principal">Principal</option>
+                                                <option value="secundario">Secundario</option>
+                                            </select>
+
+                                            <label for="observacionesProveedor">Observaciones:</label>
+                                            <textarea id="observacionesProveedor" name="observacionesProveedor"
+                                                required></textarea>
+
+                                            <label for="certificacionProveedor">Certificación del proveedor:</label>
+                                            <select id="certificacionProveedor" name="certificacionProveedor" required>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+
+                                            <label for="rapidezServicio" class="paresForm">Rapidez del
+                                                servicio:</label>
+                                            <select id="rapidezServicio" name="rapidezServicio" required>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+
+                                            <label for="condicionesEntrega">Condiciones de entrega:</label>
+                                            <select id="condicionesEntrega" name="condicionesEntrega" required>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+
+                                            <label for="numCertificado" class="paresForm">Número de certificado:</label>
+                                            <input type="text" id="numCertificado" name="numCertificado" maxlength="50"
+                                                required>
+                                            <span class="error-message"></span>
+
+                                            <label for="fechaVigenciaCertificado">Fecha de vigencia del
+                                                certificado:</label>
+                                            <input type="date" id="fechaVigenciaCertificado"
+                                                name="fechaVigenciaCertificado" required>
+
+                                            <label for="certificadoProveedor" class="paresForm">Certificado:</label>
+                                            <input type="file" id="certificadoProveedor" name="certificadoProveedor"
+                                                class="m-10" required>
+
+
+
+                                            <label for="aceptaCGenerales" class="paresForm">Acepta CG
+                                                Compra:</label>
+                                            <select id="aceptaCGenerales" name="aceptaCGenerales" required>
+                                                <option value="si">Sí</option>
+                                                <option value="no">No</option>
+                                            </select>
+
+                                            <label for="riesgoPEntrega">Riesgo plazo de entrega:</label>
+                                            <select id="riesgoPEntrega" name="riesgoPEntrega" required>
+                                                <option value="-1">-1</option>
+                                                <option value="0">0</option>
+                                            </select>
+
+                                            <label for="noConform" class="paresForm">No conformidades:</label>
+                                            <select id="noConform" name="noConform" required>
+                                                <option value="-4">-4</option>
+                                                <option value="-3">-3</option>
+                                                <option value="-2">-2</option>
+                                                <option value="-1">-1</option>
+                                                <option value="0">0</option>
+                                            </select>
+
+                                            <label for="riesgoTecnico">Riesgo técnico:</label>
+                                            <select id="riesgoTecnico" name="riesgoTecnico" required>
+                                                <option value="-1">-1</option>
+                                                <option value="0">0</option>
+                                            </select>
+
+                                            <label for="riesgoEconomico" class="paresForm">Riesgo económico:</label>
+                                            <select id="riesgoEconomico" name="riesgoEconomico" required>
+                                                <option value="-1">-1</option>
+                                                <option value="0">0</option>
+                                            </select>
+
+
+
+
+                                            <label for="totalProveedor">Total:</label>
+                                            <input type="number" id="totalProveedor" name="totalProveedor" min="0"
+                                                max="10" required>
+
+
+                                            <label for="valoracionProveedor" class="paresForm">Valoración del
+                                                proveedor:</label>
+                                            <select id="valoracionProveedor" name="valoracionProveedor" required>
+                                                <option value="Muy bueno">Muy bueno</option>
+                                                <option value="Bueno">Bueno</option>
+                                                <option value="Medio">Medio</option>
+                                                <option value="Malo">Malo</option>
+                                            </select>
+
+                                            <label for="calificacionProveedor">Calificación:</label>
+                                            <select id="calificacionProveedor" name="calificacionProveedor" required>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                            </select>
+
+                                            <button type="button" id="btnGuardarProveedor">Guardar</button>
+                                            <button type="button" id="btnActualizarProveedor">Actualizar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <h3 class=" margin-botton-3 ">PRINCIPALES</h3>
+                                </div>
+
+
+                                <table id="tabla-proveedores-principal" class="tablaEstilo margin-botton-3 ">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex align-items-center space-between">
+                                                    <div class="thText">Fecha de Alta</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Empresa</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Actividad</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Estado</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Tipo de proveedor</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Observaciones</div>
+                                            </th>
+
+
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Certificación</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Rapidez del servicio</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex align-items-center space-between">
+                                                    <div class="thText">Condicones de entrega</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+
+
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Nº Certificado</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Fecha Vigencia Certificado</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Certificado</div>
+                                            </th>
+
+
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Acepta CG Compra</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Riesgo Plazo entrega</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">No conf.</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Riesgos Técnicos</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Riesgos Económicos</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Total</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Valoración</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Calificación</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Acciones</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-proveedores-alta">
+                                        <!-- Aquí se insertarán las filas de datos -->
+                                    </tbody>
+                                </table>
+
+                                <div class="d-flex justify-content-center">
+                                    <h3 class=" margin-botton-3 ">SECUNDARIOS</h3>
+                                </div>
+
+                                <table id="tabla-proveedores-secundario" class="tablaEstilo margin-botton-3 ">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex align-items-center space-between">
+                                                    <div class="thText">Fecha de Alta</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Empresa</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Actividad</div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Estado</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText ">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Tipo de proveedor</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Observaciones</div>
+                                            </th>
+
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Certificación</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex  align-items-center space-between">
+                                                    <div class="thText">Rapidez del servicio</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex align-items-center space-between">
+                                                    <div class="thText">Condicones de entrega</div>
+                                                    <div class="d-flex flex-wrap flex-direction-column thText">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="thText">Acciones</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-proveedores-baja">
+                                        <!-- Aquí se insertarán las filas de datos -->
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/proveedores.js" defer></script>
+
+
+
+</body>
+
+</html>

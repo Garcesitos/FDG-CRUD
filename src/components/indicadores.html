@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <include src="./shared/header.html"></include>
+
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">Indicadores</h2>
+                                <div class="d-flex" style>
+                                    <button type="button" class="btn-agregar  align-items-center"
+                                        id="agregarDocumento" style="margin:50px 0 50px 0;">Agregar Documento</button>
+                                    <p id="response"></p>
+                                </div>
+                                <div class="d-flex flex-wrap">
+                                    <h3>Archivos PDF</h3>
+                                    <div id="pdf-container"
+                                        class="contenedor d-flex flex-wrap justify-content-center align-items-center document-container">
+                                        <!-- aqui se generarán los documentos -->
+
+
+                                    </div>
+                                    <h3>Archivos WORD</h3>
+                                    <div id="word-container"
+                                        class="contenedor d-flex flex-wrap justify-content-center align-items-center document-container">
+                                        <!-- aqui se generarán los documentos -->
+
+
+                                    </div>
+                                    <h3>Archivos EXCEL</h3>
+                                    <div id="excel-container"
+                                        class="contenedor d-flex flex-wrap justify-content-center align-items-center document-container">
+                                        <!-- aqui se generarán los documentos -->
+
+
+                                    </div>
+                                    <h3>Archivos POWER POINT</h3>
+                                    <div id="ppt-container"
+                                        class="contenedor d-flex flex-wrap justify-content-center align-items-center document-container">
+                                        <!-- aqui se generarán los documentos -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Modal Agregar Documento -->
+                    <div id="modalDoc" class="modalDoc">
+                        <div class="modalDoc-content d-block">
+                            <span class="close">&times;</span>
+                            <h2 id="tituloAgregar">Agregar Nuevo Documento</h2>
+                            <h2 id="tituloActualizar">Actualizar Documento</h2>
+                            <div class="center-content">
+                                <form class="" id="formDocumentos">
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="codigo_doc">Código del Documento</label>
+                                        <input type="text" id="codigo_doc" name="codigo_doc" required>
+                                    </div>
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" id="nombre" name="nombre" required>
+                                    </div>
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="edicion">Edición</label>
+                                        <input type="text" id="edicion" name="edicion" required>
+                                    </div>
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="fecha">Fecha</label>
+                                        <input type="date" id="fecha" name="fecha" required>
+                                    </div>
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="documento">Documento</label>
+                                        <input type="file" id="documento" name="documento"
+                                            accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx" required>
+                                    </div>
+                                    <div class="form-group" style="margin: 3px 0 3px 0;">
+                                        <label for="estado">Estado</label>
+                                        <select id="estado" name="estado" required>
+                                            <option value="Alta">Alta</option>
+                                            <option value="Baja">Baja</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="categoriaDiv" style="margin: 3px 0 3px 0;" hidden>
+                                        <label for="categoria">Categoría</label>
+                                        <input type="text" id="categoriaInput" value="Indicador" readonly>
+                                        <select id="categoriaSelect" name="categoria" required>
+                                            <option value="Documentacion">Documentación</option>
+                                            <option value="Accion_Mejora">Acciones de Mejora</option>
+                                            <option value="Auditoria">Auditoria</option>
+                                            <option value="Indicador">Indicador</option>
+                                            <option value="CPIR">Contexto, Partes interesadas y Riesgos</option>
+                                            <option value="Objetivo_Calidad">Objetivo de Calidad</option>
+                                            <option value="Normas">Norma</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn-agregar" type="submit" id="btn-guardarDocumento" id="close">Agregar Documento</button>
+                                    <button class="btn-editar" type="submit" id="btn-actualizarDocumento" id="close">Actualizar Documento</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="modalEliminarDoc" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p id="msgEliminarDoc"></p>
+                            <button id="confirmarEliminarDoc" class="btn-eliminar">Si, eliminar</button>
+                        </div>
+                    </div>
+
+                    <!-- Modal Preview Documento -->
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p id="msgEliminarDoc"></p>
+                            <embed id="pdf-embed" type="application/pdf" width="100%" height="850px">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/indicadores.js" defer></script>
+
+
+</body>
+
+</html>

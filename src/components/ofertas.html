@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFERTAS</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">Ofertas</h2>
+                                <div class="action-container">
+                                    <button class="" id="myBtn">Crear Oferta</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar oferta..." class="search-bar">
+                                </div>
+
+                                <!-- Modal Crear Oferta -->
+                                <div id="modalCrearOferta" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearOferta" class="m-10">
+
+                                            <label for="fecha">Fecha:</label>
+                                            <input type="date" id="fecha" name="fecha" required>
+
+                                            <label for="cliente" class="paresForm">Cliente:</label>
+                                            <select id="cliente" name="cliente">
+                                                <!-- Opciones se cargarán dinámicamente -->
+                                            </select>
+
+                                            <label for="atencionDe">Atención de:</label>
+                                            <input type="text" id="atencionDe" name="atencionDe" required>
+
+                                            <label for="formaDePago" class="paresForm">Forma de Pago:</label>
+                                            <input type="text" id="formaDePago" name="formaDePago" required>
+
+                                            <label for="plazoDeEntrega">Plazo de Entrega:</label>
+                                            <input type="text" id="plazoDeEntrega" name="plazoDeEntrega" required>
+
+                                            <label for="validezOferta" class="paresForm">Validez de Oferta:</label>
+                                            <input type="number" id="validezOferta" name="validezOferta" required>
+
+                                            <label for="ofertaAceptada">Oferta Aceptada:</label>
+                                            <select id="ofertaAceptada" name="ofertaAceptada" required>
+                                                <option value="Si">Sí</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </form>
+
+                                        <form id="formularioCrearPosiciones">
+                                            <table id="tablaCrearPosiciones">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Posición</th>
+                                                        <th>P/N Artículo</th>
+                                                        <th>Denominación</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio Unitario</th>
+                                                        <th>Posición Aceptada</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Aquí se agregarán dinámicamente las filas de posiciones -->
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex flex-wrap justify-content-center width-100">
+                                                <button type="button" id="btnAgregarPosicion">Agregar Posición</button>
+                                                <button type="button" id="btnEliminarFila">Eliminar ultima fila</button>
+                                                <button type="button" id="btnEliminarPosicion"
+                                                    class="eliminarPosicion">Eliminar última Posición</button>
+                                            </div>
+                                        </form>
+                                        <div class="d-flex flex-wrap flex-end">
+                                            <button type="button" id="btnGuardarOferta">Guardar</button>
+                                            <button type="button" id="btnActualizarOferta">Actualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <table id="tabla-ofertas" class="tablaEstilo">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Numero Oferta</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="fecha">
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Fecha</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Cliente</th>
+                                            <th>Atencion de</th>
+                                            <th>Posiciones</th>
+                                            <th>Forma de Pago</th>
+                                            <th>Plazo de entrega</th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Validez Oferta</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Aceptada</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-ofertas">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/ofertas.js" defer></script>
+</body>
+
+</html>

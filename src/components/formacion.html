@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formacion</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h1 class="text-center tituloTabla">FORMACIÓN</h1>
+
+
+                                <div class="m-20">
+                                    <div class="icon-container d-flex flex-wrap contenedor">
+                                        <h2 id="empleadosTitulo" class="">EMPLEADOS</h2>
+                                        <i class="icon-up-open cerrarContenido"></i>
+                                        <i class="icon-down-open desplegarContenido"></i>
+                                    </div>
+                                    <div id="empleadosContenido" class="d-flex flex-wrap align-items-center"
+                                        style="display:none">
+                                        <div class="action-container">
+                                            <button class="" id="myBtnCrearEmpleado">Crear Empleado</button>
+                                            <input type="text" id="searchBarEmpleados" placeholder="Buscar Empleado..."
+                                                class="search-bar">
+                                        </div>
+
+                                        <!-- Modal Crear Empleado -->
+                                        <div id="modalCrearEmpleado" class="modal">
+                                            <div class="modal-content">
+                                                <span id="spanEmpleado" class="close">&times;</span>
+                                                <form id="formularioCrearEmpleado">
+                                                    <label for="DNI">DNI:</label>
+                                                    <input type="text" id="DNI" name="DNI" required>
+
+                                                    <label for="nombre_empleado" class="paresForm">Nombre:</label>
+                                                    <input type="text" id="nombre_empleado" name="nombre_empleado"
+                                                        required>
+
+                                                    <label for="apellidos_empleado">Apellidos:</label>
+                                                    <input type="text" id="apellidos_empleado" name="apellidos_empleado"
+                                                        required>
+
+                                                    <label for="fecha_nacimiento" class="paresForm">Fecha de
+                                                        Nacimiento:</label>
+                                                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+                                                        required>
+
+                                                    <label for="correo_empleado">Correo Electrónico:</label>
+                                                    <input type="email" id="correo_empleado" name="correo_empleado"
+                                                        required>
+
+                                                    <label for="telefono_empleado" class="paresForm">Teléfono:</label>
+                                                    <input type="text" id="telefono_empleado" name="telefono_empleado"
+                                                        required>
+
+                                                    <label for="f_antiguedad">Fecha de Antigüedad:</label>
+                                                    <input type="date" id="f_antiguedad" name="f_antiguedad" required>
+
+                                                    <label for="cotizacion" class="paresForm">Cotización:</label>
+                                                    <input type="number" id="cotizacion" name="cotizacion" step="0.01"
+                                                        required>
+
+                                                    <label for="n_segSocial">Número de Seguridad Social:</label>
+                                                    <input type="text" id="n_segSocial" name="n_segSocial" required>
+
+                                                    <label for="tipo_contrato" class="paresForm">Tipo de
+                                                        Contrato:</label>
+                                                    <input type="text" id="tipo_contrato" name="tipo_contrato" required>
+
+                                                    <label for="formacion">Formación:</label>
+                                                    <input type="text" id="formacion" name="formacion" required>
+
+                                                    <label for="otras_formaciones" class="paresForm">Otras
+                                                        Formaciones:</label>
+                                                    <input type="text" id="otras_formaciones" name="otras_formaciones">
+
+                                                    <label for="documentos">Documentos:</label>
+                                                    <input type="file" id="documentos" name="documentos" class="m-1rem">
+
+                                                    <label for="num_hps" class="paresForm">Número de HPS:</label>
+                                                    <input type="text" id="num_hps" name="num_hps">
+
+                                                    <label for="f_vigencia_hps">Fecha de Vigencia de HPS:</label>
+                                                    <input type="date" id="f_vigencia_hps" name="f_vigencia_hps">
+
+                                                    <label for="imagen_empleado" class="paresForm">Imagen del
+                                                        Empleado:</label>
+                                                    <div class="d-flex flex-wrap align-items-center">
+                                                        <input type="file" id="imagen_empleado" name="imagen_empleado">
+                                                    </div>
+                                                    <button type="button" id="btnGuardarEmpleado">Guardar</button>
+                                                    <button type="button" id="btnActualizarEmpleado"
+                                                        style="display:none;">Actualizar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div id="empleadosCromos"
+                                            class="d-flex flex-wrap justify-content-center align-items-center">
+                                            <!-- Los cromos de empleados se insertarán aquí -->
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="m-20">
+                                    <div class="icon-container d-flex flex-wrap contenedor">
+                                        <h2 id="procesosTitulo" class="">PROCESOS</h2>
+                                        <i class="icon-up-open cerrarContenido"></i>
+                                        <i class="icon-down-open desplegarContenido"></i>
+                                    </div>
+                                    <div id="procesosContenido" class="d-flex flex-wrap align-items-center"
+                                        style="display:none">
+                                        <div class="action-container">
+                                            <div>
+                                                <button class="" id="myBtnCrearProceso">Crear Proceso</button>
+                                                <button class="" id="myBtnBorrarProceso">Borrar Proceso</button>
+                                            </div>
+                                            <button class="" id="myBtnEstablecerProcesos">Establecer Procesos</button>
+                                        </div>
+
+                                        <!-- Modal Crear proceso -->
+                                        <div id="modalCrearProceso" class="modal">
+                                            <div class="modal-content">
+                                                <span id="spanProceso" class="close">&times;</span>
+                                                <form id="formularioCrearProceso">
+                                                    <label for="nombreProceso">Nombre del proceso:</label>
+                                                    <input type="text" id="nombreProceso" name="nombreProceso" required>
+
+                                                    <label for="categoriasProceso" class="paresForm">Categorías:</label>
+                                                    <select id="categoriasProceso" name="categoriasProceso" required>
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <label id="labelCategoriaNueva" for="categoriaNueva">Categoría
+                                                        NUEVA:</label>
+                                                    <input type="text" id="categoriaNueva" name="categoriaNueva"
+                                                        required>
+
+                                                    <label for="descripcionProceso"
+                                                        class="paresForm">Descripción:</label>
+                                                    <input type="text" id="descripcionProceso" name="descripcionProceso"
+                                                        required>
+
+                                                    <label for="capacidadMinima">Capacidad Minima:</label>
+                                                    <input type="number" id="capacidadMinima" name="capacidadMinima"
+                                                        step="1" required>
+
+                                                    <button type="button" id="btnGuardarProceso">Guardar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal Borrar proceso -->
+                                        <div id="modalBorrarProceso" class="modal">
+                                            <div class="modal-content">
+                                                <span id="spanBorrarProceso" class="close">&times;</span>
+                                                <form id="formularioBorrarProceso">
+                                                    
+                                                    <label for="categoriasParaEliminar">Categorías:</label>
+                                                    <select id="categoriasParaEliminar" name="categoriasParaEliminar">
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <label for="nombreProcesoEliminar" class="paresForm">Nombre:</label>
+                                                    <select id="nombreProcesoEliminar" name="nombreProcesoEliminar">
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <button type="button" id="myBtnEliminarProceso">Borrar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal Establecer proceso -->
+                                        <div id="modalEstablecerProceso" class="modal">
+                                            <div class="modal-content">
+                                                <span id="spanEstablecerProceso" class="close">&times;</span>
+                                                <form id="formularioEstablecerProceso">
+
+                                                    <label for="quitarOEstablecer" >Quitar o Establecer Relación:</label>
+                                                    <select id="quitarOEstablecer" name="quitarOEstablecer">
+                                                        <option value="0">Seleccionar una opción</option>
+                                                        <option value="1">Quitar relación</option>
+                                                        <option value="2">Establecer relación</option>
+                                                    </select>
+                                                    
+                                                    <label for="empleadoNombreEstablecer" class="paresForm">Nombre Empleado:</label>
+                                                    <select id="empleadoNombreEstablecer" name="empleadoNombreEstablecer">
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <label for="categoriaEstablecer">Categoría:</label>
+                                                    <select id="categoriaEstablecer" name="categoriaEstablecer">
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <label for="procesoEstablecer" class="paresForm">Proceso:</label>
+                                                    <select id="procesoEstablecer" name="procesoEstablecer">
+                                                        <!-- Opciones se cargarán dinámicamente -->
+                                                    </select>
+
+                                                    <button type="button" id="btnEstablecer">Establecer</button>
+                                                    <button type="button" id="btnQuitar">Quitar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <table id="tablaProcesos" class="">
+                                            <thead id="theadProcesos" class="">
+
+                                            </thead>
+                                            <tbody id="tbodyProcesos">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="m-20">
+                                    <div class="icon-container d-flex flex-wrap contenedor">
+                                        <h2 id="capacidadTitulo" class="">REPOSITORIO ARCHIVOS</h2>
+                                        <i class="icon-up-open cerrarContenido"></i>
+                                        <i class="icon-down-open desplegarContenido"></i>
+                                    </div>
+
+                                    <div id="capacidadContenido" class="">
+
+                                        <!-- Contenido de capacidad de procesos -->
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/formacion.js" defer></script>
+</body>
+
+</html>

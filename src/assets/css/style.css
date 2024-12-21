@@ -1,0 +1,1274 @@
+@font-face {
+  font-family: "SF Pro";
+  src: url("../fonts/SF-Pro.ttf") format("truetype");
+}
+
+* {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #3c6181;
+  font-family: "SF Pro";
+}
+
+/* ESTILOS HEADER */
+
+header img {
+  width: 50%;
+}
+
+/* Estilos del Header */
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  padding-right: 100%px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  z-index: 1000;
+  /* Asegura que el header esté por encima de otros elementos */
+}
+
+.fa-user {
+  font-size: 1.8em;
+}
+
+.sepHead {
+  margin-right: 34px;
+}
+
+.sepHead h5 {
+  margin-left: 7px;
+}
+
+.sepPerfil {
+  margin-right: 4%;
+}
+
+.perfil {
+  width: 120%;
+}
+
+.perfil img {
+  width: 1%;
+}
+
+/* ESTILOS SIDEBAR */
+
+.sidebar {
+  width: 21.5rem;
+  min-height: 89.5vh;
+  font-size: 16.3px;
+}
+
+.sidebar .sidebar-heading {
+  text-align: center;
+  padding: 0 1rem;
+  font-weight: 800;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-dark .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-dark .nav-item .nav-link i {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar .nav-item .nav-link {
+  display: block;
+  width: 100%;
+  /* Ajustado para que ocupe todo el ancho del sidebar */
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.nav-link:hover {
+  background-color: #6b8ca8;
+  color: #fff;
+  width: 100%;
+  /* Asegura que el ancho sea del 100% del contenedor */
+}
+
+/* Para asegurar que los iconos y el texto no afecten el ancho del enlace */
+.sidebar .nav-item .nav-link a {
+  display: block;
+  /* Para que el span también ocupe todo el ancho disponible */
+}
+
+.sidebar-color {
+  background-color: #3c6181;
+  background-size: cover;
+}
+
+.mr-3,
+.mx-3 {
+  margin-right: 1rem !important;
+}
+
+.ml-3,
+.mx-3 {
+  margin-left: 1rem !important;
+}
+
+.mt-0,
+.my-0 {
+  margin-top: 0 !important;
+}
+
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important;
+}
+
+.sidebar-dark hr.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar hr.sidebar-divider {
+  margin: 0 0.8rem 1.2rem;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el contenedor principal del contenido de las tablas */
+#wrapper {
+  display: flex;
+}
+
+#wrapper #contentTable-wrapper {
+  background-color: #f8f9fc;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#wrapper #contentTable-wrapper #contentTable {
+  flex: 1 0 auto;
+}
+
+.tituloTabla {
+  margin-bottom: 20px;
+}
+
+/* ESTILOS NAVEGATION */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+/* ESTILOS LOGIN */
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+#login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainImg {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#imgLogin {
+  width: 100%;
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+#formLogin {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10%;
+  color: white;
+  width: 80%;
+  justify-content: center;
+}
+
+#formLogin input,
+#formLogin button {
+  width: 100%;
+  padding: 2%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #000;
+}
+
+#logo {
+  width: 90%;
+}
+
+/* ESTILOS CROMO */
+
+#seccionCromos {
+  background-color: #e0eaf3;
+  border-radius: 10px;
+  overflow: auto;
+  height: 1000px;
+  margin-top: 5%;
+}
+
+.contenedor {
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.cromo {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 30px;
+  margin: inherit;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 200px;
+}
+
+.cromo:hover {
+  transform: translateY(-5px);
+}
+
+.cromo img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-bottom: 20px;
+}
+
+.cromo h2 {
+  color: inherit;
+  /* Para heredar el color del texto del elemento padre */
+  text-decoration: none;
+  /* Quitar el subrayado */
+}
+
+.col-3 {
+  width: 20%;
+}
+
+.col-4 {
+  width: 25%;
+  min-width: auto;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#tituloProd,
+#tituloGest {
+  font-size: 40px;
+  margin: 50px;
+}
+
+/* Estilos para la barra de desplazamiento */
+#containerTablaProveedores::-webkit-scrollbar,
+#seccionCromos::-webkit-scrollbar {
+  width: 20px;
+  margin-right: 100px;
+  border-radius: 10px;
+}
+
+#containerTablaProveedores::-webkit-scrollbar,
+#seccionCromos::-webkit-scrollbar-thumb {
+  background-color: #7ca3c6;
+  border-radius: 10px;
+}
+
+#containerTablaProveedores::-webkit-scrollbar,
+#seccionCromos::-webkit-scrollbar-track {
+  background-color: #3c6181;
+  width: 4px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+
+  .logo,
+  .profile {
+    margin: 10px 0;
+  }
+}
+
+/* TABLA */
+
+#seccionTabla {
+  background-color: #e0eaf3;
+  border-radius: 10px;
+  overflow: auto;
+  margin-top: 100px;
+}
+
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.contenedorTabla {
+  width: 100%;
+  margin: 10px;
+  padding: 40px 10px 40px 10px;
+}
+
+.containerTablaProveedores {
+  width: 95%;
+  margin: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  /* Habilita el scroll horizontal */
+  max-width: 100%;
+  /* Establece el ancho máximo del contenedor */
+  user-select: none;
+  /* Permite la selección de texto */
+  cursor: grab;
+  /* Cambia el cursor al estilo de agarre */
+}
+
+.containerTabla {
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  /* Habilita el scroll horizontal */
+  max-width: 100%;
+  /* Establece el ancho máximo del contenedor */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-agregar {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.btn-editar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-warning {
+  background-color: #e0a800;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.btn-secondary {
+  background-color: #5a6268;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+/* ESTILOS DOCUMENTOS */
+
+/* Estilos para el modal Documentos */
+.modal {
+  display: none;
+  /* Ocultar por defecto */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 140%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Negro con opacidad */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  margin-top: 2%;
+  /* 15% desde la parte superior y centrado */
+  padding: 10px;
+  border: 1px solid #888;
+  width: 60%;
+  /* Puede ajustarse según sea necesario */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalDoc {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalDoc-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#document-wrapper {
+  min-height: 80%;
+  max-height: 80%;
+  border: 2px solid rgb(145, 145, 145);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: transparent;
+  max-width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Alinea los elementos alrededor del espacio verticalmente */
+}
+
+/* estilos de Iconos */
+
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Iconos */
+.fa-sign-out-alt:before {
+  content: "\f2f5";
+}
+
+/* TABLAS---------------------------------------------------- */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  /* Centrado verticalmente, con un margen superior e inferior del 10% */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  /* Ancho del 60% de la pantalla */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: modalopen 0.5s;
+}
+
+/* Estilos para el botón de cierre */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.labelTd{
+  width: auto !important;
+}
+
+/* Estilos para el formulario */
+#formularioCrearProveedor,
+#formularioCrearUsuario,
+#formularioCrearArticulo,
+#formularioCrearCliente,
+#formularioCrearEmpleado,
+#formularioCrearProceso,
+#formularioBorrarProceso,
+#formularioEstablecerProceso,
+#formularioCrearOferta,
+#formularioCrearPosiciones,
+#formularioVerOferta,
+#formularioCrearPedido,
+#formularioEntrada,
+#formularioSalida{
+  display: flex;
+  flex-wrap: wrap;
+  /* Permitir que los elementos se envuelvan a la siguiente fila */
+}
+
+#formularioCrearProveedor label,
+#formularioCrearUsuario label,
+#formularioCrearArticulo label,
+#formularioCrearCliente label,
+#formularioCrearEmpleado label,
+#formularioCrearProceso label,
+#formularioBorrarProceso label,
+#formularioEstablecerProceso label,
+#formularioCrearOferta label,
+#formularioCrearPosiciones label,
+#formularioVerOferta label,
+#formularioCrearPedido label,
+#formularioEntrada label,
+#formularioSalida label {
+  margin-top: 10px;
+  font-weight: bold;
+  width: 50%;
+  /* Ancho del 50% para alinear dos campos por fila */
+}
+
+#formularioCrearProveedor input[type="number"],
+#formularioCrearProveedor input[type="text"],
+#formularioCrearProveedor input[type="date"],
+#formularioCrearProveedor select,
+#formularioCrearProveedor textarea,
+#formularioCrearUsuario input[type="text"],
+#formularioCrearUsuario input[type="password"],
+#formularioCrearUsuario input[type="email"],
+#formularioCrearUsuario input[type="number"],
+#formularioCrearUsuario textarea,
+#formularioCrearArticulo input[type="text"],
+#formularioCrearArticulo input[type="number"],
+#formularioCrearArticulo select,
+#formularioCrearArticulo textarea,
+#formularioCrearCliente input[type="text"],
+#formularioCrearCliente input[type="email"],
+#formularioCrearCliente input[type="number"],
+#formularioCrearCliente textarea,
+#formularioCrearEmpleado input[type="text"],
+#formularioCrearEmpleado input[type="email"],
+#formularioCrearEmpleado input[type="number"],
+#formularioCrearEmpleado textarea,
+#formularioCrearProceso input[type="text"],
+#formularioCrearProceso input[type="number"],
+#formularioCrearProceso select,
+#formularioCrearProceso textarea,
+#formularioBorrarProceso select,
+#formularioEstablecerProceso select,
+#formularioCrearOferta input[type="number"],
+#formularioCrearOferta input[type="text"],
+#formularioCrearOferta input[type="date"],
+#formularioCrearOferta select,
+#formularioCrearOferta textarea,
+#formularioCrearPosiciones input[type="number"],
+#formularioCrearPosiciones input[type="text"],
+#formularioCrearPosiciones input[type="date"],
+#formularioCrearPosiciones select,
+#formularioCrearPosiciones textarea,
+#formularioVerOferta input[type="number"],
+#formularioVerOferta input[type="text"],
+#formularioVerOferta input[type="date"],
+#formularioVerOferta select,
+#formularioVerOferta textarea,
+#formularioCrearPedido input[type="number"],
+#formularioCrearPedido input[type="text"],
+#formularioCrearPedido input[type="date"],
+#formularioCrearPedido select,
+#formularioCrearPedido textarea,
+#formularioEntrada input[type="text"],
+#formularioEntrada input[type="date"],
+#formularioEntrada input[type="number"],
+#formularioEntrada textarea,
+#formularioEntrada select,
+#formularioSalida input[type="text"],
+#formularioSalida input[type="date"],
+#formularioSalida input[type="number"],
+#formularioSalida textarea,
+#formularioSalida select {
+  width: calc(50% - 10px);
+  /* Calcula el ancho del 50% menos el espacio del margen entre los campos */
+  padding: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+  /* Margen a la derecha para separar los campos */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el botón de guardar y actualizar del modal*/
+#btnGuardarProveedor,
+#btnActualizarProveedor,
+#btnGuardarUsuario,
+#btnActualizarUsuario,
+#btnGuardarArticulo,
+#btnActualizarArticulo,
+#btnGuardarCliente,
+#btnActualizarCliente,
+#btnGuardarEmpleado,
+#btnActualizarEmpleado,
+#btnGuardarProceso,
+#btnEstablecer,
+#btnGuardarAlmacen,
+#btnActualizarAlmacen {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: center;
+}
+
+#btnGuardarProveedor:hover,
+#btnActualizarProveedor:hover,
+#btnGuardarUsuario:hover,
+#btnCrearCliente:hover,
+#btnCrearEmpleado:hover,
+#btnCrearProceso:hover,
+#btnEstablecer:hover,
+#btnCrearAlmacen:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para los campos textarea */
+#formularioCrearProveedor textarea,
+#formularioCrearUsuario textarea,
+#formularioCrearArticulo textarea,
+#formularioCrearCliente textarea,
+#formularioCrearEmpleado textarea,
+#formularioCrearProceso textarea,
+#formularioCrearOferta textarea,
+#formularioCrearPosiciones textarea,
+#formularioVerOferta textarea,
+#formularioCrearPedido textarea,
+#formularioCrearAlmacen textarea,
+#formularioCrearEntrada textarea,
+#formularioCrearSalida textarea {
+  width: calc(100% - 20px);
+  /* Ancho completo menos el espacio del margen */
+  height: 100px;
+  resize: none;
+}
+
+#entrada_salida 
+    {
+      width: calc(50% - 10px);
+      /* Calcula el ancho del 50% menos el espacio del margen entre los campos */
+      padding: 10px;
+      margin-top: 5px;
+      margin-right: 10px;
+      /* Margen a la derecha para separar los campos */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 4px;
+  display: block;
+}
+
+#modalCrearProveedor label,
+#modalCrearUsuario label,
+#modalCrearArticulo label,
+#modalCrearCliente label,
+#modalCrearEmpleado label,
+#modalCrearProceso label,
+#modalBorrarProceso label,
+#modalEstablecerProceso label,
+#modalCrearOferta label,
+#modalVerOferta label,
+#modalCrearPedido label,
+#modalCrearAlmacen label {
+  display: flex;
+  align-items: center;
+}
+
+.paresForm {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para el botón myBtn */
+#myBtn,
+#btnCrearProveedor,
+#btnCrearUsuario,
+#btnCrearArticulo,
+#btnCrearCliente,
+#btnCrearEmpleado,
+#myBtnCrearEmpleado,
+#myBtnCrearProceso,
+#btnGuardarOferta,
+#btnActualizarOferta,
+#btnGuardarPedido,
+#btnActualizarPedido,
+#btnCrearAlmacen {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#myBtnBorrarProceso,
+#myBtnEliminarProceso,
+#btnQuitar,
+#btnEliminarPosicion,
+#btnEliminarFila {
+  background-color: #c21414;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#myBtnEstablecerProcesos,
+#btnAgregarPosicion,
+.verPosiciones,
+.btn-mostrar-oferta{
+  background-color: #3c6181;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-posiciones-pedidas {
+  background-color: #5d699c;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#myBtn:hover,
+#btnCrearProveedor:hover,
+#btnCrearUsuario:hover,
+#btnCrearArticulo:hover,
+#btnCrearCliente:hover,
+#btnCrearEmpleado:hover,
+#myBtnCrearEmpleado:hover,
+#myBtnCrearProceso:hover,
+#btnGuardarOferta:hover,
+#btnActualizarOferta:hover,
+#btnGuardarPedido:hover,
+#btnActualizarPedido:hover,
+#btnCrearAlmacen:hover {
+  background-color: #45a049;
+}
+
+#myBtnBorrarProceso:hover,
+#myBtnEliminarProceso:hover,
+#btnQuitar:hover,
+#btnEliminarPosicion:hover,
+#btnEliminarFila:hover {
+  background-color: #8a2424;
+}
+
+#myBtnEstablecerProcesos:hover,
+#btnAgregarPosicion:hover,
+.verPosiciones:hover,
+.btn-mostrar-oferta:hover {
+  background-color: #102a41;
+}
+
+.btn-posiciones-pedidas:hover {
+  background-color: #2f3550;
+
+}
+
+/* Contenedor de acciones */
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  width: 300px;
+  /* Ancho de la barra de búsqueda */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Estilo para los botones asc y desc*/
+.asc,
+.desc {
+  background-color: #ccc;
+  /* Green */
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.asc:hover,
+.desc:hover {
+  background-color: #4e4e4e;
+}
+
+.asc.active,
+.desc.active {
+  background-color: #4e4e4e;
+  color: white;
+}
+
+.asc:focus,
+.desc:focus {
+  outline: none;
+}
+
+/* Estilos para los iconos */
+.desplegarContenido,
+.cerrarContenido {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.p-05rem {
+  padding: 0.5rem;
+}
+
+.m-05rem {
+  margin: 0.5rem;
+}
+
+.m-1rem {
+  margin: 1rem;
+}
+
+.m-10 {
+  margin: 20px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.tablaEstilo td:hover {
+  color: #000000;
+  font-weight: bold;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+.tablaEstilo {
+  width: 100%;
+  /* Hace que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse;
+  /* Combina los bordes de las celdas */
+}
+
+.tablaEstilo th,
+.tablaEstilo td {
+  padding: 8px;
+  /* Espaciado interno de las celdas */
+  border: 1px solid #dddddd;
+  /* Borde de las celdas */
+  text-align: left;
+  /* Alineación del texto a la izquierda */
+}
+
+.tablaEstilo th {
+  background-color: #f2f2f2;
+  /* Color de fondo de las celdas de encabezado */
+}
+
+.tablaEstilo tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+  /* Color de fondo de las filas pares */
+}
+
+.tablaEstilo tbody tr:nth-child(odd) {
+  background-color: #0023420e;
+  /* Color de fondo de las filas pares */
+}
+
+.tablaEstilo tbody tr:hover {
+  background-color: #ddd;
+  /* Color de fondo de las filas al pasar el ratón */
+}
+
+/* Cambia el color de fondo de la primera columna al pasar el ratón */
+s .tablaEstilo tbody tr:hover td:first-child {
+  background-color: #ddd;
+}
+
+.margin-botton-3 {
+  margin-bottom: 3rem;
+}
+
+.margin-top-3 {
+  margin-top: 3rem;
+}
+
+.thText {
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.nft {
+  user-select: none;
+  margin: 5rem auto;
+  border: 1px solid #ffffff22;
+  background-color: #282c34;
+  background: linear-gradient(0deg,
+      rgb(87, 102, 131) 0%,
+      rgba(0, 19, 32, 0.5) 100%);
+  box-shadow: 0 7px 20px 5px #00000088;
+  border-radius: 0.7rem;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  overflow: hidden;
+  transition: 0.5s all;
+  height: 1040px;
+
+  /* Añade la altura deseada */
+  hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #88888855;
+    margin-top: 0;
+  }
+
+  ins {
+    text-decoration: none;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    .tokenImage {
+      border-radius: 0.5rem;
+      width: 450px;
+      height: 300px;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .description {
+      margin: 0.5rem 0;
+      color: #8fcbf3;
+    }
+
+    .tokenInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+      }
+    }
+
+    .creator {
+      display: flex;
+      align-items: center;
+      margin-top: 0.2rem;
+      margin-bottom: -0.3rem;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ffffff22;
+        padding: 0.3rem;
+        margin: 0;
+        margin-right: 0.5rem;
+        border-radius: 100%;
+        box-shadow: inset 0 0 0 4px #000000aa;
+      }
+    }
+  }
+
+  ::before {
+    position: fixed;
+    content: "";
+    box-shadow: 0 0 100px 40px #ffffff08;
+    top: -10%;
+    left: -100%;
+    transform: rotate(-45deg);
+    height: 105rem;
+    transition: 0.3s all;
+  }
+
+  &:hover {
+    border: 1px solid #ffffff44;
+    box-shadow: 0 7px 50px 10px #3c6181;
+    transform: scale(1.15);
+    filter: brightness(1.3);
+
+    ::before {
+      top: -100%;
+      left: 200%;
+    }
+  }
+}
+
+.col-4-min479 {
+  width: 25%;
+  min-width: 479px;
+}
+
+.margin-left-right-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#tablaCrearPosicionesPedidos input {
+  width: 70%;
+}
+
+.input-error{
+  border: 2px solid red !important; 
+}
+
+
+@media (max-width: 767px) {}
+
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+@media (min-width: 1025px) and (max-width: 1440px) {}
+
+@media (min-width: 1441px) and (max-width: 2559px) {}
+
+@media (min-width: 2560px) {}

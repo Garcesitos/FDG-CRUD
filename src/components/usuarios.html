@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">USUARIOS</h2>
+
+                                <div class="action-container">
+                                    <button class="" id="myBtn">Crear Usuario</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar usuario..."
+                                        class="search-bar">
+                                </div>
+
+                                <!-- The Modal -->
+                                <div id="modalCrearUsuario" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearUsuario">
+                                            <label for="nombreUsuario">Nombre de usuario:</label>
+                                            <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="contrasena" class="paresForm">Contraseña:</label>
+                                            <input type="password" id="contrasena" name="contrasena" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="correo">Correo electrónico:</label>
+                                            <input type="email" id="correo" name="correo" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="nombre" class="paresForm">Nombre:</label>
+                                            <input type="text" id="nombre" name="nombre" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="apellidos">Apellidos:</label>
+                                            <input type="text" id="apellidos" name="apellidos" required>
+                                            <span class="error-message"></span>
+
+                                            <label for="idEmpleado" class="paresForm">ID del empleado:</label>
+                                            <input type="number" id="idEmpleado" name="idEmpleado" required>
+                                            <span class="error-message"></span>
+
+                                            <button type="button" id="btnGuardarUsuario">Guardar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                                <table id="tablaUsuarios" class="tablaEstilo">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Usuario</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Contraseña</th>
+                                            <th>Email</th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Nombre</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>Apellidos</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>ID_EMPLEADO</div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-usuarios">
+                                        <!-- Puedes añadir más filas aquí con datos adicionales -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/usuarios.js" defer></script>
+</body>
+
+</html>

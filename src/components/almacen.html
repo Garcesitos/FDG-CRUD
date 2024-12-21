@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALMACÉN</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla"
+                            class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+
+                            <div id="containerTabla" class="containerTabla">
+                                <h2 class="text-center tituloTabla">ALMACÉN</h2>
+                                <div id="Existencias">
+
+
+                                    <div class="action-container">
+                                        <input type="text" id="searchBar" placeholder="Buscar en Existencias..."
+                                            class="search-bar" />
+                                        <a href="registros_almacen.html"><button class="btn-secondary">Mostrar
+                                                Registros</button></a>
+                                    </div>
+
+                                    <div id="tablaAlmacenExistencias">
+                                        <div class="d-flex justify-content-center">
+                                            <h3 class="margin-botton-3">Existencias</h3>
+                                        </div>
+
+                                        <table id="tabla-almacen-existencias" class="tablaEstilo">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Nombre Articulo</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th>Denominación</th>
+                                                    <th>
+                                                        <div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Cantidad</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Tipo</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th>Observaciones</th>
+                                                    <th>
+                                                        <div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Estantería</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Nivel</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th><div class="d-flex flex-wrap align-items-center space-between">
+                                                            <div>Zona palet</div>
+                                                            <div class="d-flex dlex-wrap flex-direction-column">
+                                                                <i class="icon-up-open asc"></i>
+                                                                <i class=" icon-down-open desc"></i>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody-almacen-existencias">
+                                                <!-- Aquí se insertarán las filas de datos -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/almacen.js" defer></script>
+</body>
+
+</html>

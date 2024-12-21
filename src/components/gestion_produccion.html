@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTIÓN DE LA PRODUCCIÓN</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+
+    <include src="./shared/header.html"></include>
+
+    <!-- Inicio del sidebar -->
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <!-- Inicio del contenido de la página -->
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <!-- Tabla y conexión con la Base de Datos -->
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla" class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">GESTIÓN DE LA PRODUCCIÓN</h2>
+                                <table id="tabla-gestion_produccion contenedor">
+                                    <thead>
+                                        <tr>
+                                            <th>OFERTA Nº</th>
+                                            <th>Fecha</th>
+                                            <th>Nombre (Cliente)</th>
+                                            <th>Dirección (Cliente)</th>
+                                            <th>Atención de (Cliente)</th>
+                                            <th>Pos.</th>
+                                            <th>Descripción</th>
+                                            <th>P/Number</th>
+                                            <th>Ctdad.</th>
+                                            <th>Euros/unit</th>
+                                            <th>Subtotal Euros</th>
+                                            <th>Observaciones</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-gestion_produccion">
+                                        <!-- Aquí se insertarán las filas de datos -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/gestion_produccion.js" defer></script>
+</body>
+
+</html>

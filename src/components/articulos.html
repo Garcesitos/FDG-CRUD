@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articulos</title>
+    <script src="../assets/js/header.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <include src="./shared/header.html"></include>
+
+    <div id="wrapper">
+        <include src="./shared/sidebar.html"></include>
+        <div id="contentTable-wrapper" class="d-flex flex-column">
+            <div id="contentTable">
+                <div class="container-fluid">
+                    <section class="d-flex align-items-center justify-content-center">
+                        <div id="seccionTabla" class="contenedorTabla d-flex flex-wrap align-items-center justify-content-center">
+                            
+                            <div class="containerTabla">
+                                <h2 class="text-center tituloTabla">ARTICULOS</h2>
+                                
+
+                                <div class="action-container">
+                                    <button class="" id="myBtn">Crear Articulo</button>
+                                    <input type="text" id="searchBar" placeholder="Buscar Articulo..."
+                                        class="search-bar">
+                                </div>
+
+                                <!-- Modal Crear Articulo -->
+                                <div id="modalCrearArticulo" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <form id="formularioCrearArticulo">
+                                            <label for="pnArticulo">P/N Artículo:</label>
+                                            <input type="text" id="pnArticulo" name="pnArticulo" required>
+
+                                            <label for="edicionRevision" class="paresForm">Edición / Revisión:</label>
+                                            <input type="text" id="edicionRevision" name="edicionRevision" required>
+
+                                            <label for="denominacion">Denominación:</label>
+                                            <input type="text" id="denominacion" name="denominacion" required>
+
+                                            <label for="precioUnitario" class="paresForm">Precio Unitario:</label>
+                                            <input type="number" id="precioUnitario" name="precioUnitario" step="0.01"
+                                                required>
+
+                                            <label for="observaciones">Observaciones:</label>
+                                            <textarea id="observaciones" name="observaciones"></textarea>
+
+                                            <label for="proveedor" class="paresForm">Proveedor:</label>
+                                            <select id="proveedor" name="proveedor" required>
+                                                <!-- Opciones se cargarán dinámicamente -->
+                                            </select>
+                                        </form>
+                                        <div class="d-flex flex-wrap flex-end"> 
+                                            <button type="button" id="btnGuardarArticulo">Guardar</button>
+                                            <button type="button" id="btnActualizarArticulo"
+                                                style="display:none;">Actualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <table id="tablaArticulos" class="tablaEstilo">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>P/N ARTÍCULO </div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class=" icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>EDICIÓN / REVISIÓN</th>
+                                            <th>DENOMINACIÓN</th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>FABRICANTE </div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="d-flex flex-wrap align-items-center space-between">
+                                                    <div>PRECIO UNITARIO </div>
+                                                    <div class="d-flex dlex-wrap flex-direction-column">
+                                                        <i class="icon-up-open asc"></i>
+                                                        <i class="icon-down-open desc"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th>OBSERVACIONES</th>
+                                            <th>ACCIONES</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="tbody-articulos">
+                                        <!-- Puedes añadir más filas aquí con datos adicionales -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/articulos.js" defer></script>
+</body>
+
+</html>
